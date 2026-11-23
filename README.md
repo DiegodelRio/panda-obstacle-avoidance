@@ -48,8 +48,8 @@ A window with six simple shapes should open. Close it, then run:
 ### 3. Get the code
 
 ```bash
-git clone https://github.com/<your-username>/<repo-name>.git
-cd <repo-name>
+git clone https://github.com/DiegodelRio/panda-obstacle-avoidance.git
+cd panda-obstacle-avoidance
 ```
 
 ## Check the math without Gazebo
