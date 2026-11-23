@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+results/
+scripts/play_collision_demo.py
+scripts/collision_demo_path.csv

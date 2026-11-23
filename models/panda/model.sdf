@@ -1,0 +1,589 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="panda">
+
+    <!-- Franka Emika Panda: 7 revolute joints plus a hand with its fingers fixed.
+         See NOTICE.md for the source of this model and what was changed. -->
+
+    <!-- Bolt the base to the world so the arm cannot fall over. -->
+    <joint name="world_to_base" type="fixed">
+      <parent>world</parent>
+      <child>panda_link0</child>
+    </joint>
+
+    <!-- Tool centre point: use this frame as the end-effector in your FK.
+         It sits 0.1034 m along the hand's z axis. -->
+    <frame name="panda_hand_tcp" attached_to="panda_hand">
+      <pose relative_to="panda_hand">0 0 0.1034 0 0 0</pose>
+    </frame>
+
+    <!-- ===== Links ===== -->
+
+    <link name="panda_link0">
+      <pose>0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.041018 -0.00014 0.049974 0 0 0</pose>
+        <mass>0.629769</mass>
+        <inertia>
+          <ixx>0.00315</ixx>
+          <ixy>8.2904e-07</ixy>
+          <ixz>0.00015</ixz>
+          <iyy>0.00388</iyy>
+          <iyz>8.2299e-06</iyz>
+          <izz>0.004285</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/visual/link0.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/collision/link0.stl</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="panda_link1">
+      <pose relative_to="panda_joint1">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0.003875 0.002081 -0.04762 0 0 0</pose>
+        <mass>4.970684</mass>
+        <inertia>
+          <ixx>0.70337</ixx>
+          <ixy>-0.000139</ixy>
+          <ixz>0.006772</ixz>
+          <iyy>0.70661</iyy>
+          <iyz>0.019169</iyz>
+          <izz>0.009117</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/visual/link1.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/collision/link1.stl</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="panda_link2">
+      <pose relative_to="panda_joint2">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.003141 -0.02872 0.003495 0 0 0</pose>
+        <mass>0.646926</mass>
+        <inertia>
+          <ixx>0.007962</ixx>
+          <ixy>-0.003925</ixy>
+          <ixz>0.010254</ixz>
+          <iyy>0.02811</iyy>
+          <iyz>0.000704</iyz>
+          <izz>0.025995</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/visual/link2.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/collision/link2.stl</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="panda_link3">
+      <pose relative_to="panda_joint3">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>2.7518e-02 3.9252e-02 -6.6502e-02 0 0 0</pose>
+        <mass>3.228604</mass>
+        <inertia>
+          <ixx>0.037242</ixx>
+          <ixy>-0.004761</ixy>
+          <ixz>-0.011396</ixz>
+          <iyy>0.036155</iyy>
+          <iyz>-0.012805</iyz>
+          <izz>0.01083</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/visual/link3.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/collision/link3.stl</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="panda_link4">
+      <pose relative_to="panda_joint4">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-5.317e-02 1.04419e-01 2.7454e-02 0 0 0</pose>
+        <mass>3.587895</mass>
+        <inertia>
+          <ixx>0.025853</ixx>
+          <ixy>0.007796</ixy>
+          <ixz>-0.001332</ixz>
+          <iyy>0.019552</iyy>
+          <iyz>0.008641</iyz>
+          <izz>0.028323</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/visual/link4.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/collision/link4.stl</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="panda_link5">
+      <pose relative_to="panda_joint5">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-1.1953e-02 4.1065e-02 -3.8437e-02 0 0 0</pose>
+        <mass>1.225946</mass>
+        <inertia>
+          <ixx>0.035549</ixx>
+          <ixy>-0.002117</ixy>
+          <ixz>-0.004037</ixz>
+          <iyy>0.029474</iyy>
+          <iyz>0.000229</iyz>
+          <izz>0.008627</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/visual/link5.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/collision/link5.stl</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="panda_link6">
+      <pose relative_to="panda_joint6">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>6.0149e-02 -1.4117e-02 -1.0517e-02 0 0 0</pose>
+        <mass>1.666555</mass>
+        <inertia>
+          <ixx>0.001964</ixx>
+          <ixy>0.000109</ixy>
+          <ixz>-0.001158</ixz>
+          <iyy>0.004354</iyy>
+          <iyz>0.000341</iyz>
+          <izz>0.005433</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/visual/link6.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/collision/link6.stl</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="panda_link7">
+      <pose relative_to="panda_joint7">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>1.0517e-02 -4.252e-03 6.1597e-02 0 0 0</pose>
+        <mass>0.735522</mass>
+        <inertia>
+          <ixx>0.012516</ixx>
+          <ixy>-0.000428</ixy>
+          <ixz>-0.001196</ixz>
+          <iyy>0.010027</iyy>
+          <iyz>-0.000741</iyz>
+          <izz>0.004815</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/visual/link7.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/collision/link7.stl</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="panda_hand">
+      <pose relative_to="panda_hand_mount">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>-0.01 0 0.03 0 0 0</pose>
+        <mass>0.73</mass>
+        <inertia>
+          <ixx>0.001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0025</iyy>
+          <iyz>0</iyz>
+          <izz>0.0017</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/visual/hand.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/collision/hand.stl</uri></mesh>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="panda_leftfinger">
+      <pose relative_to="panda_leftfinger_mount">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>2.3749999999999997e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.3749999999999997e-06</iyy>
+          <iyz>0</iyz>
+          <izz>7.5e-07</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual_0">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/visual/finger.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <pose>0 18.5e-3 11e-3 0 0 0</pose>
+        <geometry>
+          <box><size>22e-3 15e-3 20e-3</size></box>
+        </geometry>
+      </collision>
+      <collision name="collision_1">
+        <pose>0 6.8e-3 2.2e-3 0 0 0</pose>
+        <geometry>
+          <box><size>22e-3 8.8e-3 3.8e-3</size></box>
+        </geometry>
+      </collision>
+      <collision name="collision_2">
+        <pose>0 15.9e-3 28.35e-3 0.5235987755982988 0 0</pose>
+        <geometry>
+          <box><size>17.5e-3 7e-3 23.5e-3</size></box>
+        </geometry>
+      </collision>
+      <collision name="collision_3">
+        <pose>0 7.58e-3 45.25e-3 0 0 0</pose>
+        <geometry>
+          <box><size>17.5e-3 15.2e-3 18.5e-3</size></box>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="panda_rightfinger">
+      <pose relative_to="panda_rightfinger_mount">0 0 0 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.015</mass>
+        <inertia>
+          <ixx>2.3749999999999997e-06</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>2.3749999999999997e-06</iyy>
+          <iyz>0</iyz>
+          <izz>7.5e-07</izz>
+        </inertia>
+      </inertial>
+      <visual name="visual_0">
+        <pose>0 0 0 0 0 3.141592653589793</pose>
+        <geometry>
+          <mesh><uri>model://panda/meshes/visual/finger.dae</uri></mesh>
+        </geometry>
+      </visual>
+      <collision name="collision_0">
+        <pose>0 -18.5e-3 11e-3 0 0 0</pose>
+        <geometry>
+          <box><size>22e-3 15e-3 20e-3</size></box>
+        </geometry>
+      </collision>
+      <collision name="collision_1">
+        <pose>0 -6.8e-3 2.2e-3 0 0 0</pose>
+        <geometry>
+          <box><size>22e-3 8.8e-3 3.8e-3</size></box>
+        </geometry>
+      </collision>
+      <collision name="collision_2">
+        <pose>0 -15.9e-3 28.35e-3 -0.5235987755982988 0 0</pose>
+        <geometry>
+          <box><size>17.5e-3 7e-3 23.5e-3</size></box>
+        </geometry>
+      </collision>
+      <collision name="collision_3">
+        <pose>0 -7.58e-3 45.25e-3 0 0 0</pose>
+        <geometry>
+          <box><size>17.5e-3 15.2e-3 18.5e-3</size></box>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- ===== Arm joints (these 7 are the ones you control) ===== -->
+
+    <joint name="panda_joint1" type="revolute">
+      <pose relative_to="panda_link0">0 0 0.333 0 0 0</pose>
+      <parent>panda_link0</parent>
+      <child>panda_link1</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-2.8973</lower>
+          <upper>2.8973</upper>
+          <effort>87.0</effort>
+          <velocity>2.175</velocity>
+        </limit>
+      </axis>
+    </joint>
+
+    <joint name="panda_joint2" type="revolute">
+      <pose relative_to="panda_link1">0 0 0 -1.5707963267948966 0 0</pose>
+      <parent>panda_link1</parent>
+      <child>panda_link2</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1.7628</lower>
+          <upper>1.7628</upper>
+          <effort>87.0</effort>
+          <velocity>2.175</velocity>
+        </limit>
+      </axis>
+    </joint>
+
+    <joint name="panda_joint3" type="revolute">
+      <pose relative_to="panda_link2">0 -0.316 0 1.5707963267948966 0 0</pose>
+      <parent>panda_link2</parent>
+      <child>panda_link3</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-2.8973</lower>
+          <upper>2.8973</upper>
+          <effort>87.0</effort>
+          <velocity>2.175</velocity>
+        </limit>
+      </axis>
+    </joint>
+
+    <!-- Real upper limit is -0.0698 rad. It is opened to 0 here because Gazebo
+         starts every joint at q = 0. Your controller must still use -0.0698. -->
+    <joint name="panda_joint4" type="revolute">
+      <pose relative_to="panda_link3">0.0825 0 0 1.5707963267948966 0 0</pose>
+      <parent>panda_link3</parent>
+      <child>panda_link4</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-3.0718</lower>
+          <upper>0.0</upper>
+          <effort>87.0</effort>
+          <velocity>2.175</velocity>
+        </limit>
+      </axis>
+    </joint>
+
+    <joint name="panda_joint5" type="revolute">
+      <pose relative_to="panda_link4">-0.0825 0.384 0 -1.5707963267948966 0 0</pose>
+      <parent>panda_link4</parent>
+      <child>panda_link5</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-2.8973</lower>
+          <upper>2.8973</upper>
+          <effort>12.0</effort>
+          <velocity>2.61</velocity>
+        </limit>
+      </axis>
+    </joint>
+
+    <joint name="panda_joint6" type="revolute">
+      <pose relative_to="panda_link5">0 0 0 1.5707963267948966 0 0</pose>
+      <parent>panda_link5</parent>
+      <child>panda_link6</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-0.0175</lower>
+          <upper>3.7525</upper>
+          <effort>12.0</effort>
+          <velocity>2.61</velocity>
+        </limit>
+      </axis>
+    </joint>
+
+    <joint name="panda_joint7" type="revolute">
+      <pose relative_to="panda_link6">0.088 0 0 1.5707963267948966 0 0</pose>
+      <parent>panda_link6</parent>
+      <child>panda_link7</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-2.8973</lower>
+          <upper>2.8973</upper>
+          <effort>12.0</effort>
+          <velocity>2.61</velocity>
+        </limit>
+      </axis>
+    </joint>
+
+    <!-- ===== Fixed joints ===== -->
+
+    <!-- Combines the URDF's joint8 (0.107 m along z) and hand joint (-45 deg yaw). -->
+    <joint name="panda_hand_mount" type="fixed">
+      <pose relative_to="panda_link7">0 0 0.107 0 0 -0.7853981633974483</pose>
+      <parent>panda_link7</parent>
+      <child>panda_hand</child>
+    </joint>
+
+    <!-- The fingers do not move in this project, so they are fixed closed. -->
+    <joint name="panda_leftfinger_mount" type="fixed">
+      <pose relative_to="panda_hand">0 0 0.0584 0 0 0</pose>
+      <parent>panda_hand</parent>
+      <child>panda_leftfinger</child>
+    </joint>
+
+    <joint name="panda_rightfinger_mount" type="fixed">
+      <pose relative_to="panda_hand">0 0 0.0584 0 0 0</pose>
+      <parent>panda_hand</parent>
+      <child>panda_rightfinger</child>
+    </joint>
+
+    <!-- ===== Connections to Python =====
+         One position controller per joint. Publish a gz.msgs.Double to
+         /panda/jointN/cmd_pos to set that joint's target angle in radians.
+         use_velocity_commands skips Gazebo's PID, so the joint goes straight
+         to the target at up to cmd_max rad/s and there are no gains to tune.
+         initial_position is the pose the arm moves to at startup. It puts the
+         end-effector at point A with the hand pointing straight down. -->
+
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>panda_joint1</joint_name>
+      <topic>/panda/joint1/cmd_pos</topic>
+      <use_velocity_commands>true</use_velocity_commands>
+      <cmd_max>1.5</cmd_max>
+      <cmd_min>-1.5</cmd_min>
+      <initial_position>-0.303918</initial_position>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>panda_joint2</joint_name>
+      <topic>/panda/joint2/cmd_pos</topic>
+      <use_velocity_commands>true</use_velocity_commands>
+      <cmd_max>1.5</cmd_max>
+      <cmd_min>-1.5</cmd_min>
+      <initial_position>-0.404112</initial_position>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>panda_joint3</joint_name>
+      <topic>/panda/joint3/cmd_pos</topic>
+      <use_velocity_commands>true</use_velocity_commands>
+      <cmd_max>1.5</cmd_max>
+      <cmd_min>-1.5</cmd_min>
+      <initial_position>-0.104118</initial_position>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>panda_joint4</joint_name>
+      <topic>/panda/joint4/cmd_pos</topic>
+      <use_velocity_commands>true</use_velocity_commands>
+      <cmd_max>1.5</cmd_max>
+      <cmd_min>-1.5</cmd_min>
+      <initial_position>-2.705802</initial_position>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>panda_joint5</joint_name>
+      <topic>/panda/joint5/cmd_pos</topic>
+      <use_velocity_commands>true</use_velocity_commands>
+      <cmd_max>1.5</cmd_max>
+      <cmd_min>-1.5</cmd_min>
+      <initial_position>-0.054971</initial_position>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>panda_joint6</joint_name>
+      <topic>/panda/joint6/cmd_pos</topic>
+      <use_velocity_commands>true</use_velocity_commands>
+      <cmd_max>1.5</cmd_max>
+      <cmd_min>-1.5</cmd_min>
+      <initial_position>2.302898</initial_position>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-position-controller-system"
+            name="gz::sim::systems::JointPositionController">
+      <joint_name>panda_joint7</joint_name>
+      <topic>/panda/joint7/cmd_pos</topic>
+      <use_velocity_commands>true</use_velocity_commands>
+      <cmd_max>1.5</cmd_max>
+      <cmd_min>-1.5</cmd_min>
+      <initial_position>0.422461</initial_position>
+    </plugin>
+
+    <!-- Publishes joint angles and speeds on
+         /world/panda_world/model/panda/joint_state -->
+    <plugin filename="gz-sim-joint-state-publisher-system"
+            name="gz::sim::systems::JointStatePublisher">
+      <joint_name>panda_joint1</joint_name>
+      <joint_name>panda_joint2</joint_name>
+      <joint_name>panda_joint3</joint_name>
+      <joint_name>panda_joint4</joint_name>
+      <joint_name>panda_joint5</joint_name>
+      <joint_name>panda_joint6</joint_name>
+      <joint_name>panda_joint7</joint_name>
+    </plugin>
+
+  </model>
+</sdf>
