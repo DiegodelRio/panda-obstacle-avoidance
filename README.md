@@ -97,7 +97,7 @@ Use `/usr/bin/python3` for every script. The Gazebo Python packages are installe
 | Controller | Largest tracking error | Final position error | Closest approach to the ball |
 | --- | --- | --- | --- |
 | Basic | 349.9 mm | 268.4 mm | Forearm blocked by the ball |
-| Designed | To be added | To be added | To be added |
+| Designed | 2.0 mm | 0.0 mm | 87.0 mm (capsule model) |
 
 ## How it works
 
